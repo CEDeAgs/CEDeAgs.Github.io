@@ -44,6 +44,7 @@
             color: var(--color-text);
             font-weight: 400;
             line-height: 1.7;
+            background-color: var(--color-background);
         }
 
         /* Contenedor del fondo de partículas */
@@ -54,7 +55,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background-color: var(--color-background);
         }
         
         @keyframes fadeInDown {
@@ -371,63 +371,6 @@
             height: 100%;
             border: 0;
         }
-        
-        .collapsible-header {
-            cursor: pointer;
-            background-color: var(--color-accent);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-            text-align: center;
-        }
-        .collapsible-header:hover {
-            background-color: var(--color-primary);
-        }
-        .collapsible-header h2 {
-            margin-bottom: 0;
-            color: white;
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 1.5rem;
-        }
-        .collapsible-header .toggle-icon {
-            display: inline-block;
-            margin-left: 15px;
-            transition: transform 0.4s ease-in-out;
-            vertical-align: middle;
-            font-weight: bold;
-        }
-        .collapsible-header.active .toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .form-wrapper {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.7s ease-in-out;
-        }
-        .form-wrapper.expanded {
-            max-height: 950px; 
-        }
-        .form-content {
-             padding-top: 25px;
-        }
-        .form-embed-container {
-            position: relative;
-            width: 100%;
-            height: 800px;
-            margin-top: 20px;
-        }
-        .form-embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
 
         .clarification-note {
             text-align: center;
@@ -472,14 +415,19 @@
             width: 100%;
             border-bottom: 1px solid #e2e8f0;
         }
-        .collapsible-trigger h4, .collapsible-trigger p {
+        .collapsible-trigger h4 {
             margin: 0;
             padding-right: 1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            text-align: left;
         }
         .collapsible-trigger .icon {
             transition: transform 0.3s ease;
             font-weight: bold;
             font-size: 1.5rem;
+            color: var(--color-accent);
         }
         .collapsible-trigger.active .icon {
             transform: rotate(45deg);
@@ -495,11 +443,6 @@
         .collapsible-content.expanded {
             padding: 1.5rem 1rem;
             max-height: 500px;
-        }
-        .faq-question {
-            font-weight: 700;
-            color: var(--color-primary);
-            font-size: 1.1rem;
         }
 
         .contact-grid {
@@ -656,9 +599,6 @@
             .whatsapp-float img {
                 width: 28px;
                 height: 28px;
-            }
-            .form-wrapper.expanded {
-                max-height: 1000px;
             }
             .scroll-to-top-float {
                 display: flex;
@@ -920,17 +860,11 @@
                 </section>
 
                 <section id="formulario">
-                    <div class="card" style="padding: 25px;">
-                        <div id="form-toggle" class="collapsible-header">
-                            <h2>Formulario de Registro <span class="toggle-icon">▼</span></h2>
-                        </div>
-                        <div id="form-wrapper" class="form-wrapper">
-                            <div class="form-content">
-                                <p>Para solicitar el alta, baja o modificación de un usuario médico en la plataforma <strong>SEED</strong>, es indispensable llenar el siguiente formulario. Asegúrese de tener a la mano su <strong>CURP</strong>, <strong>Cédula Profesional</strong>, datos de contacto y la constancia del curso de la <strong>OPS</strong>.</p>
-                                <div class="form-embed-container">
-                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdAxoCBpvnklRzfD5hdfh82tPXj9tsd1At3djLr-6hxt5hSFQ/viewform?embedded=true">Cargando…</iframe>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <h2>Formulario de Registro</h2>
+                        <p>Para solicitar el alta, baja o modificación de un usuario médico en la plataforma <strong>SEED</strong>, es indispensable llenar el siguiente formulario. Asegúrese de tener a la mano su <strong>CURP</strong>, <strong>Cédula Profesional</strong>, datos de contacto y la constancia del curso de la <strong>OPS</strong>.</p>
+                        <div class="btn-container">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAxoCBpvnklRzfD5hdfh82tPXj9tsd1At3djLr-6hxt5hSFQ/viewform" class="btn" target="_blank" rel="noopener noreferrer">Acceder al formulario</a>
                         </div>
                     </div>
                 </section>
@@ -939,27 +873,27 @@
                     <div class="card">
                         <h2>Preguntas Frecuentes (FAQ)</h2>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿El <strong>Certificado Electrónico de Defunción (CEDe)</strong> tiene la misma validez que el de papel?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿El <strong>Certificado Electrónico de Defunción (CEDe)</strong> tiene la misma validez que el de papel?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>Sí. El <strong>CEDe</strong> tiene plena validez jurídica y es el formato oficial reconocido por el <strong>Registro Civil</strong> para la expedición del <strong>acta de defunción</strong>, según los lineamientos publicados en el <strong>Diario Oficial de la Federación</strong>.</p></div>
                         </div>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿Qué necesito para poder expedir un <strong>CEDe</strong>?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿Qué necesito para poder expedir un <strong>CEDe</strong>?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>Debe ser un profesional de la medicina con título y cédula profesional, contar con su <strong>e.firma</strong> (firma electrónica) vigente emitida por el <strong>SAT</strong>, completar el curso de la <strong>OPS</strong> sobre el llenado del certificado y ser dado de alta como usuario en el sistema por el <strong>ISSEA</strong>.</p></div>
                         </div>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿Qué sucede si no tengo <strong>e.firma</strong> o está vencida?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿Qué sucede si no tengo <strong>e.firma</strong> o está vencida?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>La <strong>e.firma</strong> es un requisito técnico y de seguridad indispensable para firmar digitalmente los certificados. Sin una <strong>e.firma</strong> válida y activa, no podrá acceder al sistema para certificar. Debe realizar el trámite correspondiente ante el <strong>SAT</strong> para obtenerla o renovarla.</p></div>
                         </div>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿Puedo generar un <strong>CEDe</strong> si no tengo conexión a internet en el lugar de la defunción?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿Puedo generar un <strong>CEDe</strong> si no tengo conexión a internet en el lugar de la defunción?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>El sistema <strong>SEED</strong> requiere conexión a internet para su operación en tiempo real. En casos de falta de conectividad en el sitio, el médico deberá trasladarse a un lugar con acceso para realizar la captura y firma del certificado. No existe un modo "offline" de expedición.</p></div>
                         </div>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿Cómo tramitan los familiares el <strong>acta de defunción</strong> con el <strong>CEDe</strong>?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿Cómo tramitan los familiares el <strong>acta de defunción</strong> con el <strong>CEDe</strong>?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>Una vez que el médico firma el <strong>CEDe</strong>, entrega a los familiares una representación impresa simple que contiene el folio único (<strong>UUID</strong>). Con ese folio, los familiares acuden al <strong>Registro Civil</strong>, donde el personal consulta el certificado directamente en el sistema nacional y procede a emitir el <strong>acta de defunción</strong> oficial.</p></div>
                         </div>
                         <div class="collapsible-item">
-                            <div class="collapsible-trigger"><p class="faq-question">¿Qué hago si cometo un error al llenar un certificado que ya firmé?</p><span class="icon">+</span></div>
+                            <div class="collapsible-trigger"><h4>¿Qué hago si cometo un error al llenar un certificado que ya firmé?</h4><span class="icon">+</span></div>
                             <div class="collapsible-content"><p>Un certificado firmado no puede ser modificado. Dependiendo de la naturaleza del error, existen procedimientos de cancelación o rectificación que deben ser gestionados directamente con la coordinación estatal del <strong>CEDe</strong> en el <strong>ISSEA</strong>, siguiendo los protocolos establecidos por la <strong>DGIS</strong>.</p></div>
                         </div>
                     </div>
@@ -1059,16 +993,6 @@
                 observer.observe(section);
             });
 
-            const formToggle = document.getElementById('form-toggle');
-            const formWrapper = document.getElementById('form-wrapper');
-
-            if (formToggle && formWrapper) {
-                formToggle.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    formWrapper.classList.toggle('expanded');
-                });
-            }
-
             const collapsibleTriggers = document.querySelectorAll('.collapsible-trigger');
             collapsibleTriggers.forEach(trigger => {
                 trigger.addEventListener('click', function() {
@@ -1083,34 +1007,39 @@
             });
 
             tsParticles.load("tsparticles", {
+                background: {
+                    color: {
+                        value: 'transparent'
+                    },
+                },
                 particles: {
                     number: {
-                        value: 60,
+                        value: 50,
                         density: {
                             enable: true,
-                            value_area: 800
+                            area: 800
                         }
                     },
                     color: {
-                        value: "#e5e7eb"
+                        value: "#d1d5db"
                     },
                     shape: {
                         type: "polygon",
                         polygon: {
-                            nb_sides: 6
+                            sides: 6
                         }
                     },
                     opacity: {
-                        value: 0.5,
+                        value: 0.4,
                     },
                     size: {
-                        value: { min: 1, max: 3 },
+                        value: { min: 1, max: 4 },
                     },
                     links: {
                         enable: true,
                         distance: 150,
                         color: "#25327b",
-                        opacity: 0.2,
+                        opacity: 0.25,
                         width: 1
                     },
                     move: {
@@ -1123,7 +1052,7 @@
                     }
                 },
                 interactivity: {
-                    detectsOn: "canvas",
+                    detectsOn: "window",
                     events: {
                         resize: true
                     }
