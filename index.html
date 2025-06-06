@@ -206,6 +206,7 @@
             font-weight: 600;
             margin-top: 25px;
             margin-bottom: 15px;
+            text-align: center; /* CORRECCIÓN */
         }
 
         p, ul, ol, .collapsible-content p {
@@ -414,11 +415,38 @@
             font-size: 1.1rem;
         }
 
-        .contact-info p {
-            text-align: left;
-            font-size: 1rem;
-            line-height: 1.8;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
+        .contact-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .contact-card .icon {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+        .contact-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .contact-card p, .contact-card a {
+            font-size: 0.9rem;
+            text-align: center;
+            word-wrap: break-word;
+            margin: 0;
+        }
+        
         .map-iframe {
             border-radius: 10px;
             margin-top: 30px;
@@ -871,14 +899,37 @@
                 <section id="contacto">
                     <div class="card">
                         <h2>Contacto</h2>
-                        <div class="contact-info">
-                            <p>Para soporte técnico, dudas sobre el proceso de registro, capacitación o cualquier asunto relacionado con la operación del CEDe en Aguascalientes, puede contactar a la coordinación estatal.</p>
-                            <p><strong>Responsable Estatal:</strong> LIA. Carlos Eduardo González Marmolejo</p>
-                            <p><strong>Teléfono:</strong> <a href="tel:+524499107900;ext=7211">(449) 910 79 00 Ext. 7211</a></p>
-                            <p><strong>Correo Electrónico:</strong> <a href="mailto:carlos.marmolejo@issea.gob.mx">carlos.marmolejo@issea.gob.mx</a></p>
-                            <p><strong>WhatsApp:</strong> <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Información%20sobre%20el%20CEDe" target="_blank" rel="noopener noreferrer">(449) 343 67 09</a></p>
-                            <p><strong>Domicilio:</strong> Calle Margil de Jesús N° 1501, Fracc. Las Arboledas, Aguascalientes, Ags.</p>
-                            <p><strong>Horario de Atención:</strong> Lunes a Viernes de 9:00 a 14:00 hrs.</p>
+                        <div class="contact-grid">
+                            <div class="contact-card">
+                                <div class="icon">👤</div>
+                                <h4>Responsable Estatal</h4>
+                                <p>LIA. Carlos Eduardo González Marmolejo</p>
+                            </div>
+                            <div class="contact-card">
+                                <div class="icon">📞</div>
+                                <h4>Teléfono</h4>
+                                <a href="tel:+524499107900;ext=7211">(449) 910 79 00 Ext. 7211</a>
+                            </div>
+                            <div class="contact-card">
+                                <div class="icon">✉️</div>
+                                <h4>Correo Electrónico</h4>
+                                <a href="mailto:carlos.marmolejo@issea.gob.mx">carlos.marmolejo@issea.gob.mx</a>
+                            </div>
+                            <div class="contact-card">
+                                <div class="icon">📱</div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Información%20sobre%20el%20CEDe" target="_blank" rel="noopener noreferrer">(449) 343 67 09</a>
+                            </div>
+                             <div class="contact-card">
+                                <div class="icon">📍</div>
+                                <h4>Domicilio</h4>
+                                <p>Calle Margil de Jesús N° 1501, Fracc. Las Arboledas, Aguascalientes, Ags.</p>
+                            </div>
+                             <div class="contact-card">
+                                <div class="icon">🕒</div>
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes de 9:00 a 14:00 hrs.</p>
+                            </div>
                         </div>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4391.182406867274!2d-102.30540372414168!3d21.90004505728292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429eef66ddea5ff%3A0xf5b476168f2c1964!2sSecretaria%20de%20Salud%20del%20Estado%20de%20Aguascalientes!5e1!3m2!1ses-419!2smx!4v1749226362697!5m2!1ses-419!2smx" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
