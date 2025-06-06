@@ -136,7 +136,7 @@
         /* Estilos para la portada */
         section#portada {
             height: 100vh;
-            width: 100%; /* CORRECCIÓN: Usar 100% en lugar de 100vw */
+            width: 100%;
             background-color: transparent;
             color: var(--color-primary);
             display: flex;
@@ -425,6 +425,37 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        .scroll-to-top-float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 100px;
+            right: 20px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            z-index: 99;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            text-decoration: none;
+        }
+        .scroll-to-top-float.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroll-to-top-float svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
 
 
         /* --- Media Queries para Responsividad --- */
@@ -465,7 +496,6 @@
             }
             .content-wrapper { padding: 0 20px; }
             
-            /* CORRECCIÓN: Se elimina el margen negativo en móvil */
             section#portada { 
                 padding: 15px; 
             }
@@ -494,6 +524,9 @@
             }
             .form-wrapper.expanded {
                 max-height: 1000px;
+            }
+            .scroll-to-top-float {
+                display: flex;
             }
         }
     </style>
@@ -526,7 +559,6 @@
         </nav>
 
         <main>
-            <!-- CORRECCIÓN ESTRUCTURAL: Portada fuera de content-wrapper -->
             <section id="portada">
                 <div class="card">
                     <img src="logo-issea.png" alt="Logo del ISSEA">
@@ -788,6 +820,10 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
+    <a href="#portada" id="scrollToTopBtn" class="scroll-to-top-float" aria-label="Volver a la portada">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.4.0/tsparticles.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -874,6 +910,22 @@
                 },
                 detectRetina: true
             });
+            
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const heroSection = document.getElementById('portada');
+
+            if (scrollToTopBtn && heroSection) {
+                const scrollObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            scrollToTopBtn.classList.add('visible');
+                        } else {
+                            scrollToTopBtn.classList.remove('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                scrollObserver.observe(heroSection);
+            }
         });
     </script>
 
