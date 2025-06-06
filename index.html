@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>CEDe - Certificado Electrónico de Defunción | ISSEA</title>
+    <meta name="description" content="Sitio oficial del Certificado Electrónico de Defunción (CEDe) del Estado de Aguascalientes, administrado por el ISSEA. Información, normatividad y capacitación.">
+    <meta name="keywords" content="CEDe, ISSEA, Aguascalientes, Certificado de Defunción, SEED, SINAIS, Salud, Gobierno de Aguascalientes">
+    <meta name="author" content="ISSEA - Gobierno del Estado de Aguascalientes">
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos CSS en el documento -->
+    <style>
+        :root {
+            --color-primary: #25327b;
+            --color-accent: #007acc;
+            --color-background: #f9f9f9;
+            --color-text: #333;
+            --color-card-bg: #ffffff;
+            --nav-width: 260px;
+            --content-max-width: 1100px;
+        }
+
+        /* --- Reseteo y Estilos Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-text);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Contenedor del fondo de partículas */
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: var(--color-background);
+        }
+
+        /* --- Diseño Principal y Navegación --- */
+        .page-container {
+            display: flex;
+        }
+
+        .main-nav {
+            width: var(--nav-width);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 40px 0;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .main-nav .nav-header {
+            padding: 0 10px 20px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-nav .nav-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .main-nav .nav-header span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .main-nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 10px;
+            font-weight: 600;
+            text-align: left;
+            transition: background-color 0.3s, padding-left 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .main-nav ul li a:hover,
+        .main-nav ul li a.active {
+            background-color: var(--color-accent);
+            padding-left: 15px;
+        }
+
+        main {
+            margin-left: var(--nav-width);
+            width: calc(100% - var(--nav-width));
+            padding: 0; 
+        }
+
+        .content-wrapper {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            padding: 0 40px; 
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding-top: 60px; 
+            margin-top: -60px; 
+        }
+
+        /* Estilos para la portada */
+        section#portada {
+            height: 100vh;
+            width: 100%; /* CORRECCIÓN: Usar 100% en lugar de 100vw */
+            background-color: transparent;
+            color: var(--color-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 0;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        #portada .card {
+             background-color: transparent;
+             box-shadow: none;
+             text-align: center;
+             padding: 0;
+        }
+
+        #portada img {
+            max-width: 350px;
+            margin-bottom: 40px;
+        }
+
+        #portada h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--color-text);
+            max-width: 600px;
+        }
+
+        #portada h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+        }
+
+        #portada h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--color-accent);
+        }
+
+
+        .card {
+            background-color: var(--color-card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p, ul, ol, .faq-item p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-left: 15px;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--color-primary);
+        }
+        
+        .highlight-text {
+            background-color: #e6f3ff;
+            padding: 20px;
+            border-left: 5px solid var(--color-accent);
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+        }
+
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .collapsible-header {
+            cursor: pointer;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .collapsible-header:hover {
+            background-color: var(--color-primary);
+        }
+        .collapsible-header h2 {
+            margin-bottom: 0;
+            color: white;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 1.5rem;
+        }
+        .collapsible-header .toggle-icon {
+            display: inline-block;
+            margin-left: 15px;
+            transition: transform 0.4s ease-in-out;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        .collapsible-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .form-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+        .form-wrapper.expanded {
+            max-height: 950px; 
+        }
+        .form-content {
+             padding-top: 25px;
+        }
+        .form-embed-container {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            margin-top: 20px;
+        }
+        .form-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .clarification-note {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .map-iframe {
+            border-radius: 10px;
+            margin-top: 30px;
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+        .whatsapp-float::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 101;
+        }
+        .whatsapp-float:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* --- Media Queries para Responsividad --- */
+        @media (max-width: 1200px) {
+            :root {
+                --nav-width: 220px;
+            }
+            main {
+                margin-left: var(--nav-width);
+                width: calc(100% - var(--nav-width));
+            }
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --nav-width: 60px;
+            }
+            main {
+                margin-left: var(--nav-width);
+                width: calc(100% - var(--nav-width));
+            }
+            .content-wrapper { padding: 0 20px; }
+            h2, #portada h2 { font-size: 1.8rem; }
+            h3, #portada h3 { font-size: 1.3rem; }
+            #portada h1 { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column;
+            }
+            .main-nav {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                width: 100%;
+            }
+            .content-wrapper { padding: 0 20px; }
+            
+            /* CORRECCIÓN: Se elimina el margen negativo en móvil */
+            section#portada { 
+                padding: 15px; 
+            }
+
+            .card {
+                padding: 25px;
+            }
+            section {
+                padding-top: 80px;
+                margin-top: -80px;
+            }
+            section#portada {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float img {
+                width: 28px;
+                height: 28px;
+            }
+            .form-wrapper.expanded {
+                max-height: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <div class="page-container">
+        <nav class="main-nav">
+            <div class="nav-header">
+                <h1>CEDe</h1>
+                <span>ISSEA</span>
+            </div>
+            <ul>
+                <li><a href="#portada" class="nav-link"><span>Portada</span></a></li>
+                <li><a href="#inicio" class="nav-link"><span>Inicio</span></a></li>
+                <li><a href="#que-es-cede" class="nav-link"><span>¿Qué es el CEDe?</span></a></li>
+                <li><a href="#normatividad" class="nav-link"><span>Normatividad</span></a></li>
+                <li><a href="#capacitacion" class="nav-link"><span>Material de Capacitación</span></a></li>
+                <li><a href="#documentos-apoyo" class="nav-link"><span>Documentos de Apoyo</span></a></li>
+                <li><a href="#sitio-oficial" class="nav-link"><span>Sitio Oficial CEDe</span></a></li>
+                <li><a href="#documentacion-oficial" class="nav-link"><span>Documentación Oficial</span></a></li>
+                <li><a href="#curso-llenado" class="nav-link"><span>Curso de Llenado</span></a></li>
+                <li><a href="#glosario" class="nav-link"><span>Glosario de Términos</span></a></li>
+                <li><a href="#formulario" class="nav-link"><span>Formulario de Registro</span></a></li>
+                <li><a href="#faq" class="nav-link"><span>Preguntas Frecuentes</span></a></li>
+                <li><a href="#contacto" class="nav-link"><span>Contacto</span></a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- CORRECCIÓN ESTRUCTURAL: Portada fuera de content-wrapper -->
+            <section id="portada">
+                <div class="card">
+                    <img src="logo-issea.png" alt="Logo del ISSEA">
+                    <h1>Instituto de Servicios de Salud del Estado de Aguascalientes</h1>
+                    <h2>CEDe</h2>
+                    <h3>Certificado Electrónico de Defunción</h3>
+                </div>
+            </section>
+
+            <div class="content-wrapper">
+
+                <section id="inicio">
+                    <div class="card">
+                        <h2>Inicio</h2>
+                        <p>El Certificado Electrónico de Defunción (CEDe) representa un avance fundamental en la modernización de los registros de defunciones en el Estado de Aguascalientes. Este sistema permite certificar oficialmente los fallecimientos de manera digital, segura y validada en tiempo real, cumpliendo con las disposiciones normativas federales y estatales.</p>
+                        <p>El CEDe forma parte del Subsistema Epidemiológico y Estadístico de Defunciones (SEED), dentro del Sistema Nacional de Información en Salud (SINAIS), garantizando la calidad, oportunidad y precisión de los registros de mortalidad, al tiempo que facilita los trámites administrativos para las familias.</p>
+                        <p>A través de esta plataforma, los profesionales médicos autorizados pueden capturar, firmar y validar electrónicamente cada certificado de defunción, fortaleciendo los procesos de:</p>
+                        <ul>
+                            <li>Registro civil.</li>
+                            <li>Control estadístico de mortalidad.</li>
+                            <li>Planeación de políticas de salud pública.</li>
+                            <li>Seguridad jurídica de los trámites de los deudos.</li>
+                        </ul>
+                        <p>El Instituto de Servicios de Salud del Estado de Aguascalientes (ISSEA), a través del Departamento de Estadística, es la autoridad encargada de la operación, supervisión, capacitación y soporte del sistema CEDe a nivel estatal.</p>
+                        <p>En este espacio encontrarás toda la información relacionada con el marco normativo, procesos operativos, materiales de capacitación y formularios de registro de usuarios, dirigidos al personal médico, administrativo y codificador involucrado en el proceso de certificación.</p>
+                        <div class="highlight-text">
+                            ✅ El uso correcto del CEDe no solo agiliza trámites, también mejora la calidad de las estadísticas de salud que nos permiten tomar mejores decisiones en beneficio de la población de Aguascalientes.
+                        </div>
+                    </div>
+                </section>
+
+                <section id="que-es-cede">
+                    <div class="card">
+                        <h2>¿Qué es el CEDe?</h2>
+                        <p>El Certificado Electrónico de Defunción (CEDe) es la versión digital oficial del certificado de defunción en México. Tiene la misma validez legal que el certificado en papel, pero ofrece un proceso modernizado, seguro y más eficiente tanto para los médicos certificantes como para las familias y las autoridades de registro civil.</p>
+                        
+                        <h3>Función principal</h3>
+                        <p>El CEDe acredita legalmente el fallecimiento de una persona, registrando los datos clínicos, demográficos y administrativos relacionados con la defunción. Este documento es indispensable para:</p>
+                        <ul>
+                            <li>Obtener el acta de defunción en el Registro Civil.</li>
+                            <li>Tramitar permisos de inhumación o cremación.</li>
+                            <li>Integrar la información al sistema nacional de estadísticas de mortalidad.</li>
+                        </ul>
+
+                        <h3>¿Quién lo expide?</h3>
+                        <p>El CEDe es expedido exclusivamente por médicos certificados y autorizados, quienes acceden al sistema informático mediante su CURP, cédula profesional y firma electrónica (e.firma). Cada registro queda firmado digitalmente, lo que garantiza su autenticidad.</p>
+
+                        <h3>¿Cómo funciona?</h3>
+                        <p>El registro se realiza en línea a través de la plataforma nacional SINBA / SEED, donde:</p>
+                        <ol>
+                            <li>El médico certificante captura los datos de la defunción.</li>
+                            <li>El sistema valida automáticamente la información (CURP, localidades, causas de muerte, fechas, etc.).</li>
+                            <li>El médico firma el certificado electrónicamente.</li>
+                            <li>Se genera un folio único nacional y el archivo PDF del certificado.</li>
+                            <li>El Registro Civil consulta el certificado electrónico para emitir el acta de defunción.</li>
+                            <li>La información se integra automáticamente a las bases de datos nacionales (SINAIS e INEGI).</li>
+                        </ol>
+
+                        <h3>Beneficios del CEDe</h3>
+                        <ul>
+                            <li>Agiliza trámites para las familias.</li>
+                            <li>Mejora la calidad de los datos capturados.</li>
+                            <li>Evita errores de llenado, gracias al uso de catálogos estandarizados.</li>
+                            <li>Reduce los tiempos de integración estadística para el sistema nacional de salud.</li>
+                            <li>Garantiza seguridad y confidencialidad mediante mecanismos de control de acceso, trazabilidad y encriptación de los datos.</li>
+                        </ul>
+
+                        <h3>Aplicación en Aguascalientes</h3>
+                        <p>En el Estado de Aguascalientes, el CEDe es administrado por el Instituto de Servicios de Salud del Estado de Aguascalientes (ISSEA), quien coordina su operación, capacita al personal médico y supervisa la correcta integración de la información.</p>
+                    </div>
+                </section>
+
+                <section id="normatividad">
+                    <div class="card">
+                        <h2>Normatividad</h2>
+                        <p>El marco normativo del CEDe se fundamenta en las siguientes leyes, acuerdos y normas oficiales mexicanas. Es indispensable su consulta para el correcto desempeño de las funciones de certificación.</p>
+                        <ul>
+                            <li><strong>Ley General de Salud:</strong> <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lgs.htm" target="_blank" rel="noopener noreferrer">Artículos 389, 391, 392; Reglamento artículo 91.</a></li>
+                            <li><strong>Acuerdo de Formatos Oficiales (DOF 28/12/2021):</strong> <a href="https://dof.gob.mx/nota_detalle.php?codigo=5638048&fecha=28/12/2021" target="_blank" rel="noopener noreferrer">Consulta el acuerdo aquí.</a></li>
+                            <li><strong>Lineamientos de operación de la versión electrónica CEDe y CEMFe (DOF 06/09/2024):</strong> <a href="https://dof.gob.mx/nota_detalle_popup.php?codigo=5738509" target="_blank" rel="noopener noreferrer">Consulta los lineamientos aquí.</a></li>
+                            <li><strong>NOM-035-SSA3-2012:</strong> En materia de información en salud. <a href="https://dof.gob.mx/nota_detalle_popup.php?codigo=5280848" target="_blank" rel="noopener noreferrer">Consulta la norma aquí.</a></li>
+                            <li><strong>NOM-024-SSA3-2012:</strong> Sistemas de Información de Registro Electrónico para la Salud. <a href="https://dof.gob.mx/nota_detalle.php?codigo=5280847" target="_blank" rel="noopener noreferrer">Consulta la norma aquí.</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="capacitacion">
+                    <div class="card">
+                        <h2>Material de Capacitación</h2>
+                        <p>Para asegurar el correcto uso de la plataforma, ponemos a su disposición los siguientes recursos de capacitación, diseñados para guiar al personal médico paso a paso en el proceso de certificación electrónica.</p>
+                        
+                        <h3>Video Tutorial de la Plataforma</h3>
+                        <div class="embed-container">
+                            <iframe src="https://www.youtube.com/embed/ADEcIbXzXgQ?si=vA0eFPdQS1E60DiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
+                        <h3>Manual de Usuario y Guía Rápida</h3>
+                        <p>Descargue el manual de operación completo en formato PDF, que incluye guías rápidas, diagramas de flujo y solución a problemas comunes.</p>
+                        <div class="btn-container">
+                            <a href="https://drive.google.com/file/d/13CMesCArUuBqT3AL-JVzrjgiOa1AVFit/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">Descargar Manual PDF</a>
+                        </div>
+                        
+                        <div class="clarification-note">
+                            <strong>Nota Aclaratoria:</strong> La capacitación y el dominio de estos materiales son requisitos indispensables previos a la obtención de credenciales de acceso al sistema y al inicio de la certificación obligatoria.
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="documentos-apoyo">
+                    <div class="card">
+                        <h2>Documentos de Apoyo</h2>
+                        <p>Adicionalmente a los manuales de capacitación, se encuentra disponible una serie de documentos de consulta que profundizan en los aspectos técnicos, operativos y normativos del sistema. Estos recursos son complementarios y están diseñados para personal administrativo, codificadores y epidemiólogos que interactúan con la información generada por el CEDe. Incluyen catálogos de causas de defunción (CIE-10), catálogos geoestadísticos del INEGI y manuales de codificación.</p>
+                    </div>
+                </section>
+
+                <section id="sitio-oficial">
+                    <div class="card">
+                        <h2>Sitio Oficial CEDe (SINBA)</h2>
+                        <p>El acceso para la captura y certificación de defunciones se realiza a través del Sistema de Información Nacional Básica en Salud (SINBA), en su módulo correspondiente al Subsistema Epidemiológico y Estadístico de Defunciones (SEED). Este es el único portal autorizado para la expedición de Certificados Electrónicos de Defunción.</p>
+                        <p>El personal médico previamente registrado y autorizado deberá ingresar utilizando su CURP, Cédula Profesional y las credenciales que le sean proporcionadas. El acceso al sistema es personal e intransferible.</p>
+                         <div class="btn-container">
+                            <a href="https://sinba08qa.salud.gob.mx/CEDe/" class="btn" target="_blank" rel="noopener noreferrer">Acceder a SINBA / SEED</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="documentacion-oficial">
+                    <div class="card">
+                        <h2>Documentación Oficial (DGIS)</h2>
+                        <p>El Subsistema Epidemiológico y Estadístico de Defunciones (SEED) es un componente vital del Sistema Nacional de Información en Salud (SINAIS). Su función principal es recopilar, procesar y difundir la información sobre la mortalidad en el país para la vigilancia epidemiológica y la planeación en salud pública. Toda la estrategia nacional, lineamientos y documentación técnica son emitidos por la Dirección General de Información en Salud (DGIS).</p>
+                        <p>Para más información sobre el SINAIS, el SEED y otros componentes del sistema de información en salud, puede consultar el sitio oficial de la DGIS.</p>
+                        <div class="btn-container">
+                            <a href="https://www.gob.mx/salud/dgis" class="btn" target="_blank" rel="noopener noreferrer">Visitar Sitio de la DGIS</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="curso-llenado">
+                    <div class="card">
+                        <h2>Curso Sobre el Correcto Llenado del Certificado de Defunción</h2>
+                        <p>La Organización Panamericana de la Salud (OPS/OMS) ofrece un curso gratuito en línea sobre el correcto llenado del Certificado de Defunción, enfocado en la calidad de la información sobre causas de muerte. La conclusión de este curso y la obtención de la constancia correspondiente es <strong>obligatoria</strong> para todos los médicos certificantes en el estado de Aguascalientes.</p>
+                        <ul>
+                            <li><strong>Nombre del curso:</strong> "El correcto llenado del Certificado de Defunción".</li>
+                            <li><strong>Acceso:</strong> <a href="https://campus.paho.org/mooc/course/view.php?id=3" target="_blank" rel="noopener noreferrer">Plataforma de Cursos MOOC de la OPS</a>.</li>
+                            <li><strong>Duración estimada:</strong> 2 horas.</li>
+                            <li><strong>Modalidad:</strong> Virtual, a ritmo propio.</li>
+                            <li><strong>Certificación:</strong> Se emite una constancia digital al aprobar, la cual debe ser presentada al ISSEA.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="glosario">
+                    <div class="card">
+                        <h2>Glosario de Términos</h2>
+                        <p>Definiciones clave extraídas de los lineamientos oficiales para una mejor comprensión del sistema.</p>
+                        
+                        <h3>CEDe (Certificado Electrónico de Defunción)</h3>
+                        <p>Documento electrónico generado y firmado electrónicamente a través del SEED por un profesional de la medicina o persona autorizada por la autoridad sanitaria competente, que certifica el fallecimiento de una persona y sus causas.</p>
+
+                        <h3>CEMFe (Certificado Electrónico de Muerte Fetal)</h3>
+                        <p>Documento electrónico análogo al CEDe, utilizado para certificar una defunción fetal, registrando sus causas y condiciones conforme a la normatividad.</p>
+
+                        <h3>Certificante</h3>
+                        <p>Profesional de la medicina en pleno ejercicio de sus funciones que cuenta con cédula profesional y e.firma, y que ha sido autorizado por la Autoridad Sanitaria para expedir CEDe y/o CEMFe.</p>
+
+                        <h3>Consultante autorizado</h3>
+                        <p>Personal del Registro Civil, de los Servicios Médicos Forenses, Agencias del Ministerio Público, Policía de Investigación y personal de epidemiología y estadística, autorizado para consultar la información de los certificados.</p>
+                        
+                        <h3>DGIS (Dirección General de Información en Salud)</h3>
+                        <p>Unidad administrativa de la Secretaría de Salud federal, responsable de normar, coordinar y evaluar el Sistema Nacional de Información en Salud (SINAIS).</p>
+                        
+                        <h3>SINAIS (Sistema Nacional de Información en Salud)</h3>
+                        <p>Conjunto de elementos, procesos e instituciones que gestionan la información en materia de salud a nivel nacional para la toma de decisiones.</p>
+
+                        <h3>SEED (Subsistema Epidemiológico y Estadístico de Defunciones)</h3>
+                        <p>Plataforma informática y componente del SINAIS donde se generan, administran y consultan los CEDe y CEMFe a nivel nacional.</p>
+                        
+                        <h3>UUID (Identificador Único Universal)</h3>
+                        <p>Folio único e irrepetible asignado a cada certificado electrónico, que garantiza su unicidad y trazabilidad a nivel nacional.</p>
+
+                        <h3>Sello electrónico</h3>
+                        <p>Conjunto de datos en forma electrónica adjuntados a un mensaje de datos, utilizado para vincular la firma del certificante con el documento, garantizando su integridad y autenticidad.</p>
+                    </div>
+                </section>
+
+                <section id="formulario">
+                    <div class="card" style="padding: 25px;">
+                        <div id="form-toggle" class="collapsible-header">
+                            <h2>Formulario de Registro <span class="toggle-icon">▼</span></h2>
+                        </div>
+                        <div id="form-wrapper" class="form-wrapper">
+                            <div class="form-content">
+                                <p>Para solicitar el alta, baja o modificación de un usuario médico en la plataforma SEED, es indispensable llenar el siguiente formulario. Asegúrese de tener a la mano su CURP, Cédula Profesional, datos de contacto y la constancia del curso de la OPS.</p>
+                                <div class="form-embed-container">
+                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdAxoCBpvnklRzfD5hdfh82tPXj9tsd1At3djLr-6hxt5hSFQ/viewform?embedded=true">Cargando…</iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="faq">
+                    <div class="card">
+                        <h2>Preguntas Frecuentes (FAQ)</h2>
+                        
+                        <div class="faq-item">
+                            <p class="faq-question">1. ¿El Certificado Electrónico de Defunción (CEDe) tiene la misma validez que el de papel?</p>
+                            <p>Sí. El CEDe tiene plena validez jurídica y es el formato oficial reconocido por el Registro Civil para la expedición del acta de defunción, según los lineamientos publicados en el Diario Oficial de la Federación.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <p class="faq-question">2. ¿Qué necesito para poder expedir un CEDe?</p>
+                            <p>Debe ser un profesional de la medicina con título y cédula profesional, contar con su e.firma (firma electrónica) vigente emitida por el SAT, completar el curso de la OPS sobre el llenado del certificado y ser dado de alta como usuario en el sistema por el ISSEA.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <p class="faq-question">3. ¿Qué sucede si no tengo e.firma o está vencida?</p>
+                            <p>La e.firma es un requisito técnico y de seguridad indispensable para firmar digitalmente los certificados. Sin una e.firma válida y activa, no podrá acceder al sistema para certificar. Debe realizar el trámite correspondiente ante el SAT para obtenerla o renovarla.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <p class="faq-question">4. ¿Puedo generar un CEDe si no tengo conexión a internet en el lugar de la defunción?</p>
+                            <p>El sistema SEED requiere conexión a internet para su operación en tiempo real. En casos de falta de conectividad en el sitio, el médico deberá trasladarse a un lugar con acceso para realizar la captura y firma del certificado. No existe un modo "offline" de expedición.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <p class="faq-question">5. ¿Cómo tramitan los familiares el acta de defunción con el CEDe?</p>
+                            <p>Una vez que el médico firma el CEDe, entrega a los familiares una representación impresa simple que contiene el folio único (UUID). Con ese folio, los familiares acuden al Registro Civil, donde el personal consulta el certificado directamente en el sistema nacional y procede a emitir el acta de defunción oficial.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <p class="faq-question">6. ¿Qué hago si cometo un error al llenar un certificado que ya firmé?</p>
+                            <p>Un certificado firmado no puede ser modificado. Dependiendo de la naturaleza del error, existen procedimientos de cancelación o rectificación que deben ser gestionados directamente con la coordinación estatal del CEDe en el ISSEA, siguiendo los protocolos establecidos por la DGIS.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contacto">
+                    <div class="card">
+                        <h2>Contacto</h2>
+                        <div class="contact-info">
+                            <p>Para soporte técnico, dudas sobre el proceso de registro, capacitación o cualquier asunto relacionado con la operación del CEDe en Aguascalientes, puede contactar a la coordinación estatal.</p>
+                            <p><strong>Responsable Estatal:</strong> LIA. Carlos Eduardo González Marmolejo</p>
+                            <p><strong>Teléfono:</strong> <a href="tel:+524499107900;ext=7211">(449) 910 79 00 Ext. 7211</a></p>
+                            <p><strong>Correo Electrónico:</strong> <a href="mailto:carlos.marmolejo@issea.gob.mx">carlos.marmolejo@issea.gob.mx</a></p>
+                            <p><strong>WhatsApp:</strong> <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Información%20sobre%20el%20CEDe" target="_blank" rel="noopener noreferrer">(449) 343 67 09</a></p>
+                            <p><strong>Domicilio:</strong> Calle Margil de Jesús N° 1501, Fracc. Las Arboledas, Aguascalientes, Ags.</p>
+                            <p><strong>Horario de Atención:</strong> Lunes a Viernes de 9:00 a 14:00 hrs.</p>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4391.182406867274!2d-102.30540372414168!3d21.90004505728292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429eef66ddea5ff%3A0xf5b476168f2c1964!2sSecretaria%20de%20Salud%20del%20Estado%20de%20Aguascalientes!5e1!3m2!1ses-419!2smx!4v1749226362697!5m2!1ses-419!2smx" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Informaci%C3%B3n%20sobre%20el%20CEDe" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-tooltip="Información sobre el CEDe">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.4.0/tsparticles.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.main-nav ul li a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const formToggle = document.getElementById('form-toggle');
+            const formWrapper = document.getElementById('form-wrapper');
+
+            if (formToggle && formWrapper) {
+                formToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    formWrapper.classList.toggle('expanded');
+                });
+            }
+
+            tsParticles.load("tsparticles", {
+                particles: {
+                    number: {
+                        value: 40,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#bbbbbb"
+                    },
+                    shape: {
+                        type: "polygon",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        },
+                        polygon: {
+                            nb_sides: 6
+                        }
+                    },
+                    opacity: {
+                        value: 0.3,
+                        random: true,
+                    },
+                    size: {
+                        value: {min: 10, max: 40},
+                        random: true,
+                        animation: {
+                            enable: true,
+                            speed: 2,
+                            minimumValue: 10,
+                            sync: false
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        outModes: "out",
+                    }
+                },
+                interactivity: {
+                    detectsOn: "canvas",
+                    events: {
+                        resize: true
+                    }
+                },
+                detectRetina: true
+            });
+        });
+    </script>
+
+</body>
+</html>
