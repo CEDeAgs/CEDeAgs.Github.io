@@ -640,6 +640,7 @@
                 <li><a href="#glosario" class="nav-link"><span>Glosario de Términos</span></a></li>
                 <li><a href="#formulario" class="nav-link"><span>Formulario de Registro</span></a></li>
                 <li><a href="#faq" class="nav-link"><span>Preguntas Frecuentes</span></a></li>
+                <li><a href="#ai-assistant" class="nav-link"><span>Asistente Virtual</span></a></li>
                 <li><a href="#contacto" class="nav-link"><span>Contacto</span></a></li>
             </ul>
         </nav>
@@ -901,6 +902,33 @@
                     </div>
                 </div>
             </section>
+            
+            <section id="ai-assistant">
+                <div class="card">
+                    <h2>Asistente Virtual</h2>
+                    <p class="text-center mb-6">¿Tienes alguna duda específica sobre el proceso del CEDe? Escribe tu pregunta a continuación y nuestro asistente de IA te proporcionará una respuesta basada en la información de este sitio.</p>
+                    
+                    <div class="max-w-2xl mx-auto mb-4">
+                        <textarea id="ai-prompt" class="w-full p-4 border-2 border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300" rows="4" placeholder="Ej: ¿Qué necesito para poder expedir un CEDe?"></textarea>
+                    </div>
+    
+                    <div class="text-center">
+                        <button id="ai-submit" class="btn inline-flex items-center justify-center px-8 py-4 text-lg font-bold">
+                            <span class="mr-2">✨</span>
+                            Consulta al Asistente Virtual
+                        </button>
+                    </div>
+    
+                    <div id="ai-loading" class="mt-6 text-center hidden">
+                        <p>Consultando a la IA, por favor espera...</p>
+                    </div>
+    
+                    <div id="ai-response-container" class="mt-8 hidden">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800 text-center">Respuesta del Asistente:</h4>
+                        <div id="ai-response" class="bg-blue-50 p-5 rounded-lg text-justify border-l-4 border-blue-500 shadow-sm"></div>
+                    </div>
+                </div>
+            </section>
 
             <section id="contacto">
                 <div class="card">
@@ -952,7 +980,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1043,11 +1071,11 @@
                         "distance": 150,
                         "color": "#25327b",
                         "opacity": 0.3,
-                        "width": 1
+                        "width": 2
                     },
                     "move": {
                         "enable": true,
-                        "speed": 3,
+                        "speed": 4,
                         "direction": "none",
                         "random": true,
                         "straight": false,
@@ -1058,12 +1086,23 @@
                     "detect_on": "canvas",
                     "events": {
                         "onhover": {
-                            "enable": false
+                            "enable": true,
+                            "mode": "repulse"
                         },
                         "onclick": {
-                            "enable": false
+                            "enable": true,
+                            "mode": "push"
                         },
                         "resize": true
+                    },
+                    "modes": {
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
                     }
                 },
                 "retina_detect": true
@@ -1084,6 +1123,61 @@
                 }, { threshold: 0.1 });
                 scrollObserver.observe(heroSection);
             }
+
+            const aiSubmitBtn = document.getElementById('ai-submit');
+            const aiPromptTextarea = document.getElementById('ai-prompt');
+            const aiResponseContainer = document.getElementById('ai-response-container');
+            const aiResponseDiv = document.getElementById('ai-response');
+            const aiLoadingDiv = document.getElementById('ai-loading');
+
+            async function getAIResponse() {
+                const userPrompt = aiPromptTextarea.value;
+                if (!userPrompt.trim()) {
+                    alert('Por favor, escribe una pregunta.');
+                    return;
+                }
+
+                aiLoadingDiv.style.display = 'block';
+                aiResponseContainer.style.display = 'none';
+
+                const fullPageText = document.body.innerText;
+
+                const finalPrompt = `Basado en el siguiente contenido del sitio web del Certificado Electrónico de Defunción (CEDe) del ISSEA, responde a la pregunta del usuario de manera clara y concisa.\n\nContexto del sitio web:\n---\n${fullPageText}\n---\n\nPregunta del usuario:\n"${userPrompt}"\n\nRespuesta:`;
+                
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: finalPrompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        aiResponseDiv.innerText = text;
+                        aiResponseContainer.style.display = 'block';
+                    } else {
+                         aiResponseDiv.innerText = "Lo siento, no pude procesar la respuesta. Por favor, intenta de nuevo.";
+                         aiResponseContainer.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error("Error al llamar a la API de Gemini:", error);
+                    aiResponseDiv.innerText = "Ocurrió un error al conectar con el asistente. Por favor, revisa tu conexión o intenta más tarde.";
+                    aiResponseContainer.style.display = 'block';
+                } finally {
+                    aiLoadingDiv.style.display = 'none';
+                }
+            }
+
+            aiSubmitBtn.addEventListener('click', getAIResponse);
         });
     </script>
 
