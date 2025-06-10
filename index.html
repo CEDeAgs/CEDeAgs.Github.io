@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Básico -->
     <title>CEDe - Certificado Electrónico de Defunción | ISSEA</title>
     <meta name="description" content="Sitio oficial del Certificado Electrónico de Defunción (CEDe) del Estado de Aguascalientes, administrado por el ISSEA. Información, normatividad y capacitación.">
     <meta name="keywords" content="CEDe, ISSEA, Aguascalientes, Certificado de Defunción, SEED, SINAIS, Salud, Gobierno de Aguascalientes">
     <meta name="author" content="ISSEA - Gobierno del Estado de Aguascalientes">
 
-    <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Estilos CSS en el documento -->
     <style>
         :root {
             --color-primary: #25327b;
@@ -73,6 +70,12 @@
         }
 
         /* --- Diseño Principal y Navegación --- */
+        .page-container {
+            display: flex;
+            position: relative; 
+            z-index: 1; 
+        }
+
         .main-nav {
             width: var(--nav-width);
             position: fixed;
@@ -128,8 +131,6 @@
         }
 
         main {
-            position: relative;
-            z-index: 1;
             margin-left: var(--nav-width);
             width: calc(100% - var(--nav-width));
             padding: 0; 
@@ -617,6 +618,8 @@
         <span></span>
         <span></span>
     </button>
+
+
     <nav class="main-nav">
         <div class="nav-header">
             <h1>CEDe</h1>
@@ -638,7 +641,6 @@
             <li><a href="#contacto" class="nav-link"><span>Contacto</span></a></li>
         </ul>
     </nav>
-
     <main>
         <section id="portada">
             <div class="card">
@@ -770,6 +772,11 @@
                 <div class="card">
                     <h2>Documentos de Apoyo</h2>
                     <p>Adicionalmente a los manuales de capacitación, se encuentra disponible una serie de documentos de consulta que profundizan en los aspectos técnicos, operativos y normativos del sistema. Estos recursos son complementarios y están diseñados para personal administrativo, codificadores y epidemiólogos que interactúan con la información generada por el <strong>CEDe</strong>. Incluyen catálogos de causas de defunción (<strong>CIE-10</strong>), catálogos geoestadísticos del <strong>INEGI</strong> y manuales de codificación.</p>
+                    <h3 style="font-size: 1.25rem;">Ficha de Contacto para Impresión</h3>
+                    <p>Descargue la ficha de contacto oficial del <strong>CEDe</strong> para imprimirla y distribuirla en hospitales, clínicas y áreas administrativas. Este documento contiene toda la información de contacto necesaria para solicitar soporte o información.</p>
+                    <div class="btn-container">
+                        <a href="Contacto e informacion - CEDe.pdf" class="btn" download>Descargar Ficha de Contacto (PDF)</a>
+                    </div>
                 </div>
             </section>
 
@@ -1000,9 +1007,10 @@
             });
 
             tsParticles.load("tsparticles", {
-                background: {
-                    color: {
-                        value: 'transparent'
+                fpsLimit: 60,
+                interactivity: {
+                    events: {
+                        resize: true
                     },
                 },
                 particles: {
@@ -1041,13 +1049,9 @@
                         direction: "none",
                         random: true,
                         straight: false,
-                        outModes: "out",
-                    }
-                },
-                interactivity: {
-                    detectsOn: "window",
-                    events: {
-                        resize: true
+                        outModes: {
+                            default: "out"
+                        },
                     }
                 },
                 detectRetina: true
