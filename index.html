@@ -85,7 +85,7 @@
             height: 100vh;
             background-color: var(--color-primary);
             color: white;
-            padding: 40px 0;
+            padding: 20px 0; /* Padding reducido */
             overflow-y: auto;
             z-index: 1001;
             transition: transform 0.3s ease-in-out;
@@ -118,11 +118,11 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 8px 20px; /* Padding vertical reducido */
             font-weight: 600;
             text-align: left;
             transition: background-color 0.3s, padding-left 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Tamaño de fuente ligeramente reducido */
         }
 
         .main-nav ul li a:hover,
@@ -563,7 +563,7 @@
             height: 28px;
             fill: white;
         }
-
+        
         @media (max-width: 992px) {
             .content-wrapper { padding: 0 20px; }
             h2, #portada h2 { font-size: 1.8rem; }
@@ -968,10 +968,9 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4391.182406867274!2d-102.30540372414168!3d21.90004505728292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429eef66ddea5ff%3A0xf5b476168f2c1964!2sSecretaria%20de%20Salud%20del%20Estado%20de%20Aguascalientes!5e1!3m2!1ses-419!2smx!4v1749226362697!5m2!1ses-419!2smx" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </section>
-
         </div>
     </main>
-
+    
     <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Informaci%C3%B3n%20sobre%20el%20CEDe" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-tooltip="Información sobre el CEDe">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
@@ -980,7 +979,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1083,7 +1082,7 @@
                     }
                 },
                 "interactivity": {
-                    "detect_on": "canvas",
+                    "detect_on": "window",
                     "events": {
                         "onhover": {
                             "enable": true,
@@ -1177,7 +1176,9 @@
                 }
             }
 
-            aiSubmitBtn.addEventListener('click', getAIResponse);
+            if (aiSubmitBtn) {
+              aiSubmitBtn.addEventListener('click', getAIResponse);
+            }
         });
     </script>
 
