@@ -71,10 +71,13 @@
         }
 
         /* --- Diseño Principal y Navegación --- */
-        .page-container {
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .main-container {
             display: flex;
-            position: relative; 
-            z-index: 1; 
         }
 
         .main-nav {
@@ -85,7 +88,7 @@
             height: 100vh;
             background-color: var(--color-primary);
             color: white;
-            padding: 20px 0; /* Padding reducido */
+            padding: 40px 0;
             overflow-y: auto;
             z-index: 1001;
             transition: transform 0.3s ease-in-out;
@@ -118,11 +121,11 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 8px 20px; /* Padding vertical reducido */
+            padding: 8px 20px;
             font-weight: 600;
             text-align: left;
             transition: background-color 0.3s, padding-left 0.3s;
-            font-size: 0.85rem; /* Tamaño de fuente ligeramente reducido */
+            font-size: 0.85rem;
         }
 
         .main-nav ul li a:hover,
@@ -564,11 +567,24 @@
             fill: white;
         }
         
+        footer {
+             background-color: #2d3748;
+             color: #e2e8f0;
+             padding: 3rem 1rem;
+             position: relative;
+             z-index: 1;
+        }
+        
         @media (max-width: 992px) {
             .content-wrapper { padding: 0 20px; }
             h2, #portada h2 { font-size: 1.8rem; }
             h3, #portada h3 { font-size: 1.3rem; }
             #portada h1 { font-size: 1.2rem; }
+            main {
+                margin-left: 0;
+                width: 100%;
+            }
+            footer { margin-left: 0; width: 100%; }
         }
 
         @media (max-width: 768px) {
@@ -606,6 +622,16 @@
                 right: 20px;
                 width: 45px;
                 height: 45px;
+            }
+            
+            .footer-content {
+                text-align: center;
+            }
+            .footer-column p, .footer-column a {
+                text-align: center;
+            }
+            .footer-column h4 {
+                text-align: center;
             }
         }
     </style>
@@ -656,321 +682,71 @@
 
             <div class="content-wrapper">
 
-                <section id="inicio">
+                <section id="inicio">...</section>
+                <section id="que-es-cede">...</section>
+                <section id="normatividad">...</section>
+                <section id="capacitacion">...</section>
+                <section id="documentos-apoyo">...</section>
+                <section id="sitio-oficial">...</section>
+                <section id="documentacion-oficial">...</section>
+                <section id="curso-llenado">...</section>
+                <section id="glosario">...</section>
+                <section id="formulario">...</section>
+                <section id="faq">...</section>
+                <section id="ai-assistant">
                     <div class="card">
-                        <h2>Inicio</h2>
-                        <p>El <strong>Certificado Electrónico de Defunción (CEDe)</strong> representa un avance fundamental en la modernización de los registros de defunciones en el Estado de Aguascalientes. Este sistema permite certificar oficialmente los fallecimientos de manera digital, segura y validada en tiempo real, cumpliendo con las disposiciones normativas federales y estatales.</p>
-                        <p>El <strong>CEDe</strong> forma parte del <strong>Subsistema Epidemiológico y Estadístico de Defunciones (SEED)</strong>, dentro del <strong>Sistema Nacional de Información en Salud (SINAIS)</strong>, garantizando la calidad, oportunidad y precisión de los registros de mortalidad, al tiempo que facilita los trámites administrativos para las familias.</p>
-                        <p>A través de esta plataforma, los profesionales médicos autorizados pueden capturar, firmar y validar electrónicamente cada certificado de defunción, fortaleciendo los procesos de:</p>
-                        <ul>
-                            <li>Registro civil.</li>
-                            <li>Control estadístico de mortalidad.</li>
-                            <li>Planeación de políticas de salud pública.</li>
-                            <li>Seguridad jurídica de los trámites de los deudos.</li>
-                        </ul>
-                        <p>El <strong>Instituto de Servicios de Salud del Estado de Aguascalientes (ISSEA)</strong>, a través del <strong>Departamento de Estadística</strong>, es la autoridad encargada de la operación, supervisión, capacitación y soporte del sistema <strong>CEDe</strong> a nivel estatal.</p>
-                        <p>En este espacio encontrarás toda la información relacionada con el marco normativo, procesos operativos, materiales de capacitación y formularios de registro de usuarios, dirigidos al personal médico, administrativo y codificador involucrado en el proceso de certificación.</p>
-                        <div class="highlight-text">
-                            ✅ El uso correcto del <strong>CEDe</strong> no solo agiliza trámites, también mejora la calidad de las estadísticas de salud que nos permiten tomar mejores decisiones en beneficio de la población de Aguascalientes.
-                        </div>
-                    </div>
-                </section>
-
-                <section id="que-es-cede">
-                    <div class="card">
-                        <h2>¿Qué es el CEDe?</h2>
-                        <p>El <strong>Certificado Electrónico de Defunción (CEDe)</strong> es la versión digital oficial del certificado de defunción en <strong>México</strong>. Tiene la misma validez legal que el certificado en papel, pero ofrece un proceso modernizado, seguro y más eficiente tanto para los médicos certificantes como para las familias y las autoridades de <strong>Registro Civil</strong>.</p>
+                        <h2>Asistente Virtual</h2>
+                        <p class="text-center mb-6">¿Tienes alguna duda específica sobre el proceso del CEDe? Escribe tu pregunta a continuación y nuestro asistente de IA te proporcionará una respuesta basada en la información de este sitio.</p>
                         
-                        <h3>Función principal</h3>
-                        <p>El <strong>CEDe</strong> acredita legalmente el fallecimiento de una persona, registrando los datos clínicos, demográficos y administrativos relacionados con la defunción. Este documento es indispensable para:</p>
-                        <ul>
-                            <li>Obtener el <strong>acta de defunción</strong> en el <strong>Registro Civil</strong>.</li>
-                            <li>Tramitar permisos de inhumación o cremación.</li>
-                            <li>Integrar la información al sistema nacional de estadísticas de mortalidad.</li>
-                        </ul>
-
-                        <h3>¿Quién lo expide?</h3>
-                        <p>El <strong>CEDe</strong> es expedido exclusivamente por médicos certificados y autorizados, quienes acceden al sistema informático mediante su <strong>CURP</strong>, <strong>cédula profesional</strong> y firma electrónica (<strong>e.firma</strong>). Cada registro queda firmado digitalmente, lo que garantiza su autenticidad.</p>
-
-                        <h3>¿Cómo funciona?</h3>
-                        <ol>
-                            <li>El médico certificante captura los datos de la defunción.</li>
-                            <li>El sistema valida automáticamente la información (<strong>CURP</strong>, localidades, causas de muerte, fechas, etc.).</li>
-                            <li>El médico firma el certificado electrónicamente.</li>
-                            <li>Se genera un folio único nacional y el archivo PDF del certificado.</li>
-                            <li>El <strong>Registro Civil</strong> consulta el certificado electrónico para emitir el <strong>acta de defunción</strong>.</li>
-                            <li>La información se integra automáticamente a las bases de datos nacionales (<strong>SINAIS</strong> e <strong>INEGI</strong>).</li>
-                        </ol>
-
-                        <h3>Beneficios del CEDe</h3>
-                        <ul>
-                            <li>Agiliza trámites para las familias.</li>
-                            <li>Mejora la calidad de los datos capturados.</li>
-                            <li>Evita errores de llenado, gracias al uso de catálogos estandarizados.</li>
-                            <li>Reduce los tiempos de integración estadística para el sistema nacional de salud.</li>
-                            <li>Garantiza seguridad y confidencialidad mediante mecanismos de control de acceso, trazabilidad y encriptación de los datos.</li>
-                        </ul>
-
-                        <h3>Aplicación en Aguascalientes</h3>
-                        <p>En el Estado de Aguascalientes, el <strong>CEDe</strong> es administrado por el <strong>Instituto de Servicios de Salud del Estado de Aguascalientes (ISSEA)</strong>, quien coordina su operación, capacita al personal médico y supervisa la correcta integración de la información.</p>
-                    </div>
-                </section>
-
-                <section id="normatividad">
-                    <div class="card">
-                        <h2>Normatividad</h2>
-                        <div class="norm-grid">
-                            <div class="norm-card">
-                                <h4><strong>Ley General de Salud</strong></h4>
-                                <p>Establece las bases y modalidades para el acceso a los servicios de salud y la concurrencia de la Federación y las entidades federativas en materia de salubridad general.</p>
-                                <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lgs.htm" target="_blank" rel="noopener noreferrer" class="btn">Consultar Ley</a>
-                            </div>
-                            <div class="norm-card">
-                                <h4><strong>Acuerdo de Formatos Oficiales</strong></h4>
-                                <p>Define los formatos oficiales para la expedición del certificado electrónico de defunción, asegurando la estandarización a nivel nacional.</p>
-                                <a href="https://sinba.salud.gob.mx/sinba/sinba_defunciones/formatos/Certificado_de_Defuncion_y_Muerte_Fetal_Modelo_2022.pdf" target="_blank" rel="noopener noreferrer" class="btn">Consultar Acuerdo</a>
-                            </div>
-                            <div class="norm-card">
-                                <h4><strong>Lineamientos de Operación</strong></h4>
-                                <p>Especifica los procedimientos técnicos y administrativos para la correcta operación de las versiones electrónicas del <strong>CEDe</strong> y <strong>CEMFe</strong>.</p>
-                                <a href="https://dof.gob.mx/nota_detalle_popup.php?codigo=5738509" target="_blank" rel="noopener noreferrer" class="btn">Consultar Lineamientos</a>
-                            </div>
-                            <div class="norm-card">
-                                <h4><strong>NOM-035-SSA3-2012</strong></h4>
-                                <p>Norma Oficial Mexicana en materia de información en salud, que regula la generación, uso y manejo de la información en el sector.</p>
-                                <a href="https://dof.gob.mx/nota_detalle_popup.php?codigo=5280848" target="_blank" rel="noopener noreferrer" class="btn">Consultar NOM-035</a>
-                            </div>
-                            <div class="norm-card">
-                                <h4><strong>NOM-024-SSA3-2012</strong></h4>
-                                <p>Establece los objetivos y funcionalidades que deberán observar los Sistemas de Información de Registro Electrónico para la Salud.</p>
-                                <a href="https://dof.gob.mx/nota_detalle.php?codigo=5280847" target="_blank" rel="noopener noreferrer" class="btn">Consultar NOM-024</a>
-                            </div>
+                        <div class="max-w-2xl mx-auto mb-4">
+                            <textarea id="ai-prompt" class="w-full p-4 border-2 border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300" rows="4" placeholder="Ej: ¿Qué necesito para poder expedir un CEDe?"></textarea>
+                        </div>
+        
+                        <div class="text-center">
+                            <button id="ai-submit" class="btn inline-flex items-center justify-center px-8 py-4 text-lg font-bold">
+                                <span class="mr-2">✨</span>
+                                Consulta al Asistente Virtual
+                            </button>
+                        </div>
+        
+                        <div id="ai-loading" class="mt-6 text-center hidden">
+                            <p>Consultando a la IA, por favor espera...</p>
+                        </div>
+        
+                        <div id="ai-response-container" class="mt-8 hidden">
+                            <h4 class="text-xl font-bold mb-3 text-gray-800 text-center">Respuesta del Asistente:</h4>
+                            <div id="ai-response" class="bg-blue-50 p-5 rounded-lg text-justify border-l-4 border-blue-500 shadow-sm"></div>
                         </div>
                     </div>
                 </section>
-
-                <section id="capacitacion">
-                    <div class="card">
-                        <h2>Material de Capacitación</h2>
-                        <p>Para asegurar el correcto uso de la plataforma, ponemos a su disposición los siguientes recursos de capacitación, diseñados para guiar al personal médico paso a paso en el proceso de certificación electrónica.</p>
-                        
-                        <h3>Video Tutorial de la Plataforma</h3>
-                        <div class="embed-container">
-                            <iframe src="https://www.youtube.com/embed/ADEcIbXzXgQ?si=vA0eFPdQS1E60DiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-
-                        <h3>Manual de Usuario y Guía Rápida</h3>
-                        <p>Descargue el manual de operación completo en formato PDF, que incluye guías rápidas, diagramas de flujo y solución a problemas comunes.</p>
-                        <div class="btn-container">
-                            <a href="https://drive.google.com/file/d/13CMesCArUuBqT3AL-JVzrjgiOa1AVFit/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">Descargar Manual PDF</a>
-                        </div>
-                        
-                        <div class="clarification-note">
-                            <strong>Nota Aclaratoria:</strong> La capacitación y el dominio de estos materiales son requisitos indispensables previos a la obtención de credenciales de acceso al sistema y al inicio de la certificación obligatoria.
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="documentos-apoyo">
-                    <div class="card">
-                        <h2>Documentos de Apoyo</h2>
-                        <p>Adicionalmente a los manuales de capacitación, se encuentra disponible una serie de documentos de consulta que profundizan en los aspectos técnicos, operativos y normativos del sistema. Estos recursos son complementarios y están diseñados para personal administrativo, codificadores y epidemiólogos que interactúan con la información generada por el <strong>CEDe</strong>. Incluyen catálogos de causas de defunción (<strong>CIE-10</strong>), catálogos geoestadísticos del <strong>INEGI</strong> y manuales de codificación.</p>
-                    <h3 style="font-size: 1.25rem;">Ficha de Contacto para Impresión</h3>
-                    <p>Descargue la ficha de contacto oficial del <strong>CEDe</strong> para imprimirla y distribuirla en hospitales, clínicas y áreas administrativas. Este documento contiene toda la información de contacto necesaria para solicitar soporte o información.</p>
-                    <div class="btn-container">
-                        <a href="Contacto e informacion - CEDe.pdf" class="btn" download>Descargar Ficha de Contacto (PDF)</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="sitio-oficial">
-                <div class="card">
-                    <h2>Sitio Oficial CEDe (SINBA)</h2>
-                    <p>El acceso para la captura y certificación de defunciones se realiza a través del <strong>Sistema de Información Nacional Básica en Salud (SINBA)</strong>, en su módulo correspondiente al <strong>Subsistema Epidemiológico y Estadístico de Defunciones (SEED)</strong>. Este es el único portal autorizado para la expedición de <strong>Certificados Electrónicos de Defunción</strong>.</p>
-                    <p>El personal médico previamente registrado y autorizado deberá ingresar utilizando su <strong>CURP</strong>, <strong>Cédula Profesional</strong> y las credenciales que le sean proporcionadas. El acceso al sistema es personal e intransferible.</p>
-                     <div class="btn-container">
-                        <a href="https://sinba08qa.salud.gob.mx/CEDe/" class="btn" target="_blank" rel="noopener noreferrer">Acceder a SINBA / SEED</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="documentacion-oficial">
-                <div class="card">
-                    <h2>Documentación Oficial (DGIS)</h2>
-                    <p>El <strong>Subsistema Epidemiológico y Estadístico de Defunciones (SEED)</strong> es un componente vital del <strong>Sistema Nacional de Información en Salud (SINAIS)</strong>. Su función principal es recopilar, procesar y difundir la información sobre la mortalidad en el país para la vigilancia epidemiológica y la planeación en salud pública. Toda la estrategia nacional, lineamientos y documentación técnica son emitidos por la <strong>Dirección General de Información en Salud (DGIS)</strong>.</p>
-                    <p>Para más información sobre el <strong>SINAIS</strong>, el <strong>SEED</strong> y otros componentes del sistema de información en salud, puede consultar el sitio oficial de la <strong>DGIS</strong>.</p>
-                    <div class="btn-container">
-                        <a href="https://www.gob.mx/salud/dgis" class="btn" target="_blank" rel="noopener noreferrer">Visitar Sitio de la DGIS</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="curso-llenado">
-                <div class="card">
-                    <h2>Curso Sobre el Correcto Llenado del Certificado de Defunción</h2>
-                    <p>La <strong>Organización Panamericana de la Salud (OPS/OMS)</strong> ofrece un curso gratuito en línea sobre el correcto llenado del <strong>Certificado de Defunción</strong>, enfocado en la calidad de la información sobre causas de muerte. La conclusión de este curso y la obtención de la constancia correspondiente es <strong>obligatoria</strong> para todos los médicos certificantes en el estado de Aguascalientes.</p>
-                    <ul>
-                        <li><strong>Nombre del curso:</strong> "El correcto llenado del Certificado de Defunción".</li>
-                        <li><strong>Duración estimada:</strong> 2 horas.</li>
-                        <li><strong>Modalidad:</strong> Virtual, a ritmo propio.</li>
-                        <li><strong>Certificación:</strong> Se emite una constancia digital al aprobar, la cual debe ser presentada al <strong>ISSEA</strong>.</li>
-                    </ul>
-                    <div class="btn-container">
-                        <a href="https://campus.paho.org/mooc/course/view.php?id=3" class="btn" target="_blank" rel="noopener noreferrer">Acceder al Curso</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="glosario">
-                <div class="card">
-                    <h2>Glosario de Términos</h2>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>CEDe (Certificado Electrónico de Defunción)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Documento electrónico generado y firmado electrónicamente a través del <strong>SEED</strong> por un profesional de la medicina o persona autorizada por la autoridad sanitaria competente, que certifica el fallecimiento de una persona y sus causas.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>CEMFe (Certificado Electrónico de Muerte Fetal)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Documento electrónico análogo al <strong>CEDe</strong>, utilizado para certificar una defunción fetal, registrando sus causas y condiciones conforme a la normatividad.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>Certificante</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Profesional de la medicina en pleno ejercicio de sus funciones que cuenta con cédula profesional y <strong>e.firma</strong>, y que ha sido autorizado por la Autoridad Sanitaria para expedir <strong>CEDe</strong> y/o <strong>CEMFe</strong>.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>Consultante autorizado</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Personal del <strong>Registro Civil</strong>, de los <strong>Servicios Médicos Forenses</strong>, <strong>Agencias del Ministerio Público</strong>, <strong>Policía de Investigación</strong> y personal de epidemiología y estadística, autorizado para consultar la información de los certificados.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>DGIS (Dirección General de Información en Salud)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Unidad administrativa de la <strong>Secretaría de Salud</strong> federal, responsable de normar, coordinar y evaluar el <strong>Sistema Nacional de Información en Salud (SINAIS)</strong>.</p></div>
-                    </div>
-                     <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>SINAIS (Sistema Nacional de Información en Salud)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Conjunto de elementos, procesos e instituciones que gestionan la información en materia de salud a nivel nacional para la toma de decisiones.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>SEED (Subsistema Epidemiológico y Estadístico de Defunciones)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Plataforma informática y componente del <strong>SINAIS</strong> donde se generan, administran y consultan los <strong>CEDe</strong> y <strong>CEMFe</strong> a nivel nacional.</p></div>
-                    </div>
-                     <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>UUID (Identificador Único Universal)</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Folio único e irrepetible asignado a cada certificado electrónico, que garantiza su unicidad y trazabilidad a nivel nacional.</p></div>
-                    </div>
-                     <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4><strong>Sello electrónico</strong></h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Conjunto de datos en forma electrónica adjuntados a un mensaje de datos, utilizado para vincular la firma del certificante con el documento, garantizando su integridad y autenticidad.</p></div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="formulario">
-                <div class="card">
-                    <h2>Formulario de Registro</h2>
-                    <p>Para solicitar el alta, baja o modificación de un usuario médico en la plataforma <strong>SEED</strong>, es indispensable llenar el siguiente formulario. Asegúrese de tener a la mano su <strong>CURP</strong>, <strong>Cédula Profesional</strong>, datos de contacto y la constancia del curso de la <strong>OPS</strong>.</p>
-                    <div class="btn-container">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAxoCBpvnklRzfD5hdfh82tPXj9tsd1At3djLr-6hxt5hSFQ/viewform" class="btn" target="_blank" rel="noopener noreferrer">Acceder al formulario</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="faq">
-                <div class="card">
-                    <h2>Preguntas Frecuentes (FAQ)</h2>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿El <strong>Certificado Electrónico de Defunción (CEDe)</strong> tiene la misma validez que el de papel?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Sí. El <strong>CEDe</strong> tiene plena validez jurídica y es el formato oficial reconocido por el <strong>Registro Civil</strong> para la expedición del <strong>acta de defunción</strong>, según los lineamientos publicados en el <strong>Diario Oficial de la Federación</strong>.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿Qué necesito para poder expedir un <strong>CEDe</strong>?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Debe ser un profesional de la medicina con título y cédula profesional, contar con su <strong>e.firma</strong> (firma electrónica) vigente emitida por el <strong>SAT</strong>, completar el curso de la <strong>OPS</strong> sobre el llenado del certificado y ser dado de alta como usuario en el sistema por el <strong>ISSEA</strong>.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿Qué sucede si no tengo <strong>e.firma</strong> o está vencida?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>La <strong>e.firma</strong> es un requisito técnico y de seguridad indispensable para firmar digitalmente los certificados. Sin una <strong>e.firma</strong> válida y activa, no podrá acceder al sistema para certificar. Debe realizar el trámite correspondiente ante el <strong>SAT</strong> para obtenerla o renovarla.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿Puedo generar un <strong>CEDe</strong> si no tengo conexión a internet en el lugar de la defunción?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>El sistema <strong>SEED</strong> requiere conexión a internet para su operación en tiempo real. En casos de falta de conectividad en el sitio, el médico deberá trasladarse a un lugar con acceso para realizar la captura y firma del certificado. No existe un modo "offline" de expedición.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿Cómo tramitan los familiares el <strong>acta de defunción</strong> con el <strong>CEDe</strong>?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Una vez que el médico firma el <strong>CEDe</strong>, entrega a los familiares una representación impresa simple que contiene el folio único (<strong>UUID</strong>). Con ese folio, los familiares acuden al <strong>Registro Civil</strong>, donde el personal consulta el certificado directamente en el sistema nacional y procede a emitir el <strong>acta de defunción</strong> oficial.</p></div>
-                    </div>
-                    <div class="collapsible-item">
-                        <div class="collapsible-trigger"><h4>¿Qué hago si cometo un error al llenar un certificado que ya firmé?</h4><span class="icon">+</span></div>
-                        <div class="collapsible-content"><p>Un certificado firmado no puede ser modificado. Dependiendo de la naturaleza del error, existen procedimientos de cancelación o rectificación que deben ser gestionados directamente con la coordinación estatal del <strong>CEDe</strong> en el <strong>ISSEA</strong>, siguiendo los protocolos establecidos por la <strong>DGIS</strong>.</p></div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="ai-assistant">
-                <div class="card">
-                    <h2>Asistente Virtual</h2>
-                    <p class="text-center mb-6">¿Tienes alguna duda específica sobre el proceso del CEDe? Escribe tu pregunta a continuación y nuestro asistente de IA te proporcionará una respuesta basada en la información de este sitio.</p>
-                    
-                    <div class="max-w-2xl mx-auto mb-4">
-                        <textarea id="ai-prompt" class="w-full p-4 border-2 border-gray-200 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300" rows="4" placeholder="Ej: ¿Qué necesito para poder expedir un CEDe?"></textarea>
-                    </div>
-    
-                    <div class="text-center">
-                        <button id="ai-submit" class="btn inline-flex items-center justify-center px-8 py-4 text-lg font-bold">
-                            <span class="mr-2">✨</span>
-                            Consulta al Asistente Virtual
-                        </button>
-                    </div>
-    
-                    <div id="ai-loading" class="mt-6 text-center hidden">
-                        <p>Consultando a la IA, por favor espera...</p>
-                    </div>
-    
-                    <div id="ai-response-container" class="mt-8 hidden">
-                        <h4 class="text-xl font-bold mb-3 text-gray-800 text-center">Respuesta del Asistente:</h4>
-                        <div id="ai-response" class="bg-blue-50 p-5 rounded-lg text-justify border-l-4 border-blue-500 shadow-sm"></div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contacto">
-                <div class="card">
-                    <h2>Contacto</h2>
-                    <div class="contact-grid">
-                        <div class="contact-card">
-                            <div class="icon">👤</div>
-                            <h4>Responsable Estatal</h4>
-                            <p><strong>LIA. Carlos Eduardo González Marmolejo</strong></p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="icon">📞</div>
-                            <h4>Teléfono</h4>
-                            <a href="tel:+524499107900;ext=7211">(449) 910 79 00 Ext. 7211</a>
-                        </div>
-                        <div class="contact-card">
-                            <div class="icon">✉️</div>
-                            <h4>Correo Electrónico</h4>
-                            <a href="mailto:carlos.marmolejo@issea.gob.mx">carlos.marmolejo@issea.gob.mx</a>
-                        </div>
-                        <div class="contact-card">
-                            <div class="icon">📱</div>
-                            <h4>WhatsApp</h4>
-                            <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Información%20sobre%20el%20CEDe" target="_blank" rel="noopener noreferrer">(449) 343 67 09</a>
-                        </div>
-                         <div class="contact-card">
-                            <div class="icon">📍</div>
-                            <h4>Domicilio</h4>
-                            <p>Calle Margil de Jesús N° 1501, Fracc. Las Arboledas, Aguascalientes, Ags.</p>
-                        </div>
-                         <div class="contact-card">
-                            <div class="icon">🕒</div>
-                            <h4>Horario de Atención</h4>
-                            <p>Lunes a Viernes de 9:00 a 14:00 hrs.</p>
-                        </div>
-                    </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4391.182406867274!2d-102.30540372414168!3d21.90004505728292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429eef66ddea5ff%3A0xf5b476168f2c1964!2sSecretaria%20de%20Salud%20del%20Estado%20de%20Aguascalientes!5e1!3m2!1ses-419!2smx!4v1749226362697!5m2!1ses-419!2smx" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
+                <section id="contacto">...</section>
+            </div>
+        </main>
+        
+    </div>
+     <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>CEDe - ISSEA</h4>
+                <p>Plataforma oficial del Certificado Electrónico de Defunción para el estado de Aguascalientes.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto Directo</h4>
+                <a href="tel:+524499107900;ext=7211">Tel: (449) 910 79 00 Ext. 7211</a>
+                <a href="mailto:carlos.marmolejo@issea.gob.mx">carlos.marmolejo@issea.gob.mx</a>
+                 <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Información%20sobre%20el%20CEDe" target="_blank" rel="noopener noreferrer">WhatsApp: (449) 343 67 09</a>
+            </div>
+             <div class="footer-column">
+                <h4>Responsable</h4>
+                 <p>LIA. Carlos Eduardo González Marmolejo</p>
+                 <p>Departamento de Estadística</p>
+            </div>
         </div>
-    </main>
-    
+        <div class="footer-bottom">
+            <p>&copy; 2024 Instituto de Servicios de Salud del Estado de Aguascalientes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
     <a href="https://api.whatsapp.com/send?phone=5214493436709&text=Informaci%C3%B3n%20sobre%20el%20CEDe" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-tooltip="Información sobre el CEDe">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
@@ -1146,7 +922,7 @@
                 let chatHistory = [];
                 chatHistory.push({ role: "user", parts: [{ text: finalPrompt }] });
                 const payload = { contents: chatHistory };
-                const apiKey = ""
+                const apiKey = "AIzaSyAmdgXh7zuDq_grBbUHQDxdiewJioriocE"
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
