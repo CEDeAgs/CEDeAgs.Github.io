@@ -1161,7 +1161,7 @@
             // Contexto completo del sitio para la IA
             const fullPageText = document.body.innerText;
 
-            const finalPrompt = `Basado en el siguiente contenido del sitio web del Certificado Electrónico de Defunción (CEDe) del ISSEA, responde a la pregunta del usuario de manera clara y concisa.\n\nContexto del sitio web:\n---\n${fullPageText}\n---\n\nPregunta del usuario:\n"${userPrompt}"\n\nRespuesta:`;
+            const finalPrompt = `Basado en el siguiente contenido del sitio web del Certificado Electrónico de Defunción (CEDe) del ISSEA, responde a la pregunta del usuario de manera clara, formal y concisa.\n\nContexto del sitio web:\n---\n${fullPageText}\n---\n\nPregunta del usuario:\n"${userPrompt}"\n\nRespuesta:`;
             
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: finalPrompt }] });
